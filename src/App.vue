@@ -4,6 +4,8 @@
     <h3 class="bg-yellow" :style="textRed">{{ movie.title }}</h3>
     <p>개봉: {{ movie.year }}</p>
     <p>장르: {{ movie.category }}</p>
+    <!-- @ 대신 v-on 을 사용해도 됨-->
+    <button @:click="like++">좋아요</button><span> {{ like }}</span>
   </div>
 </template>
 
@@ -12,7 +14,7 @@
     name: 'App',
     data() {
       return {
-        foods: ["김밥", "순대", "만두", "떡국"],
+        like: 0,
         data: [
           {
             title: "노랑",
@@ -25,7 +27,17 @@
             year: 2023,
             category: "액션, 판타지, 어드벤처",
           },
+          {
+            title: "3일의 휴가",
+            year: 2023,
+            category: "판타지, 드라마",
+          },
         ]
+      }
+    },
+    methods: {
+      increaseLike(){
+        this.like += 1;
       }
     }
   }
