@@ -11,7 +11,7 @@
       <!-- @ 대신 v-on 을 사용해도 됨-->
       <button @:click="increaseLike(i)">좋아요</button>
       <span> {{ movie.like }}</span>
-      <p><button @click="isModal=true">상세보기</button></p>
+      <p><button @click="isModal=true; selectedMovie=i">상세보기</button></p>
     </div>
   </div>
 
@@ -26,7 +26,6 @@
 
 <script>
 import data from './assets/movies';
-console.log(data);
 
 export default {
   name: 'App',
@@ -34,6 +33,7 @@ export default {
     return {
       isModal: false,
       data: data,
+      selectedMovie: 0,
     }
   },
   methods: {
